@@ -1,0 +1,127 @@
+{
+    "title": "万科又一城120平米",
+    "size": 768,
+    "audio": "./resource/bg.mp3",
+    "autoplay": true,
+    "toolbar": {
+        "audio":true,
+        "select":true,
+        "spot":true
+    },
+    "stages": [{
+        "id": "kct",
+        "title": "客餐厅",
+        "preview":"./resource/kct/preview.jpg",
+        "cubeMap": [
+            "./resource/kct/r.jpg",
+            "./resource/kct/l.jpg",
+            "./resource/kct/u.jpg",
+            "./resource/kct/d.jpg",
+            "./resource/kct/f.jpg",
+            "./resource/kct/b.jpg"
+        ],
+        "hotSpots": [{
+                "title": "阳台",
+                "lon": 25,
+                "lat": -10,
+                "to": "yt"
+            },
+            {
+                "title": "主卧",
+                "lon": 75,
+                "lat": -8,
+                "to": "dgnsf"
+            },
+            {
+                "title": "男孩房",
+                "lon": 125,
+                "lat": -8,
+                "to": "nhf"
+            },
+            {
+                "title": "厨房",
+                "lon": 175,
+                "lat": -8,
+                "to": "cf"
+            },
+            {
+                "title": "多功能书房",
+                "lon": -135,
+                "lat": -8,
+                "to": "dgnsf"
+            }
+        ]
+    }, {
+        "id": "dgnsf",
+        "title": "多功能书房",
+        "preview":"./resource/dgnsf/preview.jpg",
+        "cubeMap": [
+            "./resource/dgnsf/r.jpg",
+            "./resource/dgnsf/l.jpg",
+            "./resource/dgnsf/u.jpg",
+            "./resource/dgnsf/d.jpg",
+            "./resource/dgnsf/f.jpg",
+            "./resource/dgnsf/b.jpg"
+        ],
+        "hotSpots": [{
+            "title": "客餐厅",
+            "lon": 25,
+            "lat": -10,
+            "to": "kct"
+        }]
+    }, {
+        "id": "cf",
+        "title": "厨房",
+        "preview":"./resource/cf/preview.jpg",
+        "cubeMap": [
+            "./resource/cf/r.jpg",
+            "./resource/cf/l.jpg",
+            "./resource/cf/u.jpg",
+            "./resource/cf/d.jpg",
+            "./resource/cf/f.jpg",
+            "./resource/cf/b.jpg"
+        ],
+        "hotSpots": [{
+            "title": "客餐厅",
+            "lon": 25,
+            "lat": -10,
+            "to": "kct"
+        }]
+    }, {
+        "id": "nhf",
+        "title": "男孩房",
+        "preview":"./resource/nhf/preview.jpg",
+        "cubeMap": [
+            "./resource/nhf/r.jpg",
+            "./resource/nhf/l.jpg",
+            "./resource/nhf/u.jpg",
+            "./resource/nhf/d.jpg",
+            "./resource/nhf/f.jpg",
+            "./resource/nhf/b.jpg"
+        ],
+        "hotSpots": [{
+            "title": "客餐厅",
+            "lon": 25,
+            "lat": -10,
+            "to": "kct"
+        }]
+    }, {
+        "id": "yt",
+        "title": "阳台",
+        "preview":"./resource/yt/preview.jpg",
+        "cubeMap": [
+            "./resource/yt/r.jpg",
+            "./resource/yt/l.jpg",
+            "./resource/yt/u.jpg",
+            "./resource/yt/d.jpg",
+            "./resource/yt/f.jpg",
+            "./resource/yt/b.jpg"
+        ],
+        "hotSpots": [{
+            "title": "客餐厅",
+            "lon": -175,
+            "lat": -10,
+            "to": "kct"
+        }]
+    }]
+}

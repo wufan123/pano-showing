@@ -1,0 +1,47 @@
+<html>
+
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script type="text/javascript" src="http://apps.bdimg.com/libs/fastclick/1.0.0/fastclick.min.js"></script>
+    <link rel="stylesheet" href="css/panorama.css"/>
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_t9kkvfjzmjwcdi.css"/>
+    <!--<meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">	<link rel="stylesheet" type="text/css" href="css/panorama.css" />-->
+    <!--[if IE]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+        var phoneScale = parseInt(window.screen.width) / 375;
+        document.write('<meta name="viewport" content="width=375, minimum-scale = ' + phoneScale + ', maximum-scale = ' +
+                phoneScale + ', target-densitydpi=device-dpi">');
+        //禁止微信滚动
+        document.addEventListener('touchstart', function (ev) {
+            event.preventDefault();
+        });
+        //禁止300ms延迟
+        if ('addEventListener' in document) {
+            document.addEventListener('DOMContentLoaded', function () {
+                FastClick.attach(document.body);
+            }, false);
+        }
+    </script>
+</head>
+
+<body ondragstart="return false">
+<script type="text/javascript" src="js/three.js"></script>
+<script type="text/javascript" src="js/CSS3DRenderer.js"></script>
+<script type="text/javascript" src="js/controls.js"></script>
+<script type="text/javascript" src="js/hotSpot.js"></script>
+<script type="text/javascript" src="js/standalone.js"></script>
+<script type="text/javascript" src="js/loadBar.js"></script>
+<script type="text/javascript" src="js/panorama.js"></script>
+<script>
+    var panorama;
+    loadJSON('js/stages.json', function (config) {
+        console.log("取到的配置",config)
+        document.title = config.title
+        panorama = new Panorama(config, document.body)
+    })
+</script>
+</body>
+</html>
