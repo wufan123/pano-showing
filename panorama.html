@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <script type="text/javascript" src="http://apps.bdimg.com/libs/fastclick/1.0.0/fastclick.min.js"></script>
     <link rel="stylesheet" href="css/panorama.css"/>
-    <link rel="stylesheet" href="//at.alicdn.com/t/font_t9kkvfjzmjwcdi.css"/>
+    <!--<link rel="stylesheet" href="//at.alicdn.com/t/font_t9kkvfjzmjwcdi.css"/>-->
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_mbmhh9py34kxd2t9.css"/>
     <!--<meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">	<link rel="stylesheet" type="text/css" href="css/panorama.css" />-->
     <!--[if IE]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -35,13 +36,5 @@
 <script type="text/javascript" src="js/standalone.js"></script>
 <script type="text/javascript" src="js/loadBar.js"></script>
 <script type="text/javascript" src="js/panorama.js"></script>
-<script>
-    var panorama;
-    loadJSON('js/stages.json', function (config) {
-        console.log("取到的配置",config)
-        document.title = config.title
-        panorama = new Panorama(config, document.body)
-    })
-</script>
 </body>
 </html>
