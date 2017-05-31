@@ -43,7 +43,7 @@ function creatRequest(url,arg, callback) {
     request.open(arg?"post":"get", url);
     request.setRequestHeader("appname", "resident_app");
     request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-    request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;");
+    request.setRequestHeader("Accept", "application/json;version=1");
     request.setRequestHeader("authorization", "Bearer " + window.sessionStorage.getItem("token"));
     request.onreadystatechange = function () {
         if (request.readyState !== 4) return;

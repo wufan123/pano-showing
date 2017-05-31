@@ -6,11 +6,11 @@ function getData() {
     if (haveToken()) {
         httpPost("/area/community/getDetail", {"id": communityId}, function (res) {
             if (res.ret == 0)
-                createTitle("当前小区：" + res.result.name)
+                createTitle("当前小区：" + res.result.name);
         });
         httpGet("/area/building/getTypeList?communityId=" + communityId, function (res) {
             if (res.ret == 0)
-                createItems(res.result.data)
+                createItems(res.result.data);
         })
     }
 }
@@ -22,8 +22,10 @@ function haveToken() {
 
 }
 function login() {
-    openId = getPar("openId");
-    communityId = getPar("communityId");
+    communityId = "838945-1604-0636-0064";
+    openId = "ouytHtzVh8PmfQQLkI3ittwEpYNA";
+    // openId = getPar("openId");
+    // communityId = getPar("communityId");
     httpPost("/role/user/loginWx", {"wxOpenId": openId}, function (res) {
         window.sessionStorage.setItem("token", res.token);
         getHouseType();
