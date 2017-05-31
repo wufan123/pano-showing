@@ -16,7 +16,7 @@ function getData() {
 }
 function haveToken() {
     var token = window.sessionStorage.getItem("token");
-    if (!token) {
+    if (token=="undefined") {
         login();
         return false;
     }else
