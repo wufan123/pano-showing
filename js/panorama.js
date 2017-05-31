@@ -7,8 +7,21 @@
 //     document.title = config.title
 //     panorama = new Panorama(config, document.body)
 // })
-var stageList = JSON.parse(window.sessionStorage.getItem("stageList"));
-stageList.cubePicUrls =JSON.parse(stageList.cubePicUrls);
+var stageList;
+try {
+    stageList = convertCubePicUrls(JSON.parse(window.sessionStorage.getItem("stageList")));
+}catch (e)
+{
+    anError("场景列表信息异常",1000);
+}
+
+function convertCubePicUrls(list) {
+    for(var i =0;i<list.length;i++)
+    {
+        list[i].cubePicUrls = JSON.parse(list[i].cubePicUrls);
+    }
+    return list;
+}
 var panorama = new Panorama({
     title: "",
     size: 768,
