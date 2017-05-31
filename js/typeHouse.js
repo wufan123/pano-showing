@@ -1,7 +1,7 @@
 var openId, communityId,unionid,nickname,avatar;
 
-getData();
-
+// getData();
+login();
 function getData() {
     if (haveToken()) {
         httpPost("/api/area/community/getDetail", {"id": communityId}, function (res) {
