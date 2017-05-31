@@ -58,15 +58,16 @@ function createTitle(title) {
 
 function createItems(items) {
     for (var i = 0; i < items.length; i++) {
-        var item = items[i];
-        var itemEle = document.createElement("div");
-        itemEle.classList.add("type_item");
-        itemEle.innerHTML = item.name;
-        itemEle.addEventListener("click", function (event) {
-            event.stopPropagation();
-            getStageList(item);
-        }, false);
-        document.body.appendChild(itemEle);
+        (function (item) {
+            var itemEle = document.createElement("div");
+            itemEle.classList.add("type_item");
+            itemEle.innerHTML = item.name;
+            itemEle.addEventListener("click", function (event) {
+                event.stopPropagation();
+                getStageList(item);
+            }, false);
+            document.body.appendChild(itemEle);
+        })(items[i]);
     }
 }
 
