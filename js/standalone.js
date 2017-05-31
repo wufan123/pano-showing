@@ -41,7 +41,7 @@ function creatRequest(url, arg, callback) {
         request.abort();
     }, 6000);
     request.open(arg ? "post" : "get", url);
-    request.setRequestHeader("appname", "resident_app");
+    request.setRequestHeader("appname", "estate_vendor_web");
     request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
     request.setRequestHeader("Accept", "application/json;version=1");
     request.setRequestHeader("authorization", "Bearer " + window.sessionStorage.getItem("token"));
