@@ -36,7 +36,7 @@ function login() {
     httpPost("/api/role/user/loginWx", {"wxOpenId": openId,"appId":1000,"wxUnionId":unionid,"wxNick":nickname,"wxAvatarUrl":avatar}, function (res) {
         if(res.ret==0)
         {
-            window.sessionStorage.setItem("token", res.token);
+            window.sessionStorage.setItem("token", res.result.token);
             getData();
         }
     })
