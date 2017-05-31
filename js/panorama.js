@@ -112,7 +112,7 @@ function Panorama (config, domElement, clickSpotFn) {
         // var estateElement = document.createElement('div');
         // estateElement.className = 'preview';
         createToolBarItem("icon-house","户型选择",function () {
-                window.location.href = "panorama.html"
+                window.history.go(-1);
         });
         if (config.toolbar.select) { // 房间选择
             var planeElement = document.createElement('div');

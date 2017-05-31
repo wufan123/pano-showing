@@ -53,7 +53,7 @@ function createTitle(title) {
     var tagEle = document.createElement("div");
     tagEle.classList.add("type_tag");
     tagEle.innerHTML = "全部户型：";
-    document.body.appendChild(tagEle);
+    document.getElementById("title").appendChild(tagEle);
 }
 
 function createItems(items) {
