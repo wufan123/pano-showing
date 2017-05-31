@@ -26,13 +26,16 @@ function haveToken() {
 
 }
 function login() {
-    communityId = "838945-1604-0636-0064";
+    communityId = "856414-4173-1869-9008";
     openId = "ouytHtzVh8PmfQQLkI3ittwEpYNA";
     unionid="o4x5iszXtSPSOJ8WkbWP5ceIIuqo";
     nickname="123456";
     avatar="http%3A%2F%2Fwx.qlogo.cn%2Fmmopen%2FajNVdqHZLLAHV00sCqwMg8ibib8ZyPCF2EJLK7q88jSZ5yyj83KA28vdoWX2hBdaibpz9Y4nNFL625K1xbKwZ9M1w%2F0";
-    // openId = getPar("openId");
     // communityId = getPar("communityId");
+    // openId = getPar("openId");
+    // unionid = getPar("unionid");
+    // nickname = getPar("nickname");
+    // avatar = getPar("avatar");
     httpPost("/api/role/user/loginWx", {"wxOpenId": openId,"appId":1000,"wxUnionId":unionid,"wxNick":nickname,"wxAvatarUrl":avatar}, function (res) {
         if(res.ret==0)
         {
