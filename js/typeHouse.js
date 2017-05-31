@@ -49,7 +49,7 @@ function createTitle(title) {
     var titleEle = document.createElement("div");
     titleEle.classList.add("type_title");
     titleEle.innerHTML = title;
-    document.body.appendChild(titleEle);
+    document.getElementById("title").appendChild(titleEle);
     var tagEle = document.createElement("div");
     tagEle.classList.add("type_tag");
     tagEle.innerHTML = "全部户型：";
