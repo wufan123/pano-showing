@@ -30,7 +30,7 @@ function login() {
     openId = "ouytHtzVh8PmfQQLkI3ittwEpYNA";
     // openId = getPar("openId");
     // communityId = getPar("communityId");
-    httpPost("/api/role/user/loginWx", {"wxOpenId": openId}, function (res) {
+    httpPost("/api/role/user/loginWx", {"wxOpenId": openId,"appId":1000}, function (res) {
         if(res.ret==0)
         {
             window.sessionStorage.setItem("token", res.token);
