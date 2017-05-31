@@ -33,14 +33,14 @@ loadJSON = function (url, cb) {
     return;
 }
 
-function creatRequest(url,arg, callback) {
+function creatRequest(url, arg, callback) {
     var request = new XMLHttpRequest();
     var timeout = false;
     var timer = setTimeout(function () {
         timeout = true;
         request.abort();
     }, 6000);
-    request.open(arg?"post":"get", url);
+    request.open(arg ? "post" : "get", url);
     request.setRequestHeader("appname", "resident_app");
     request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
     request.setRequestHeader("Accept", "application/json;version=1");
@@ -50,18 +50,24 @@ function creatRequest(url,arg, callback) {
         if (timeout) return;
         clearTimeout(timer);
         if (request.status === 200) {
-            callback(request.responseText);
+            var jsonRe;
+            try {
+                jsonRe = JSON.parse(request.responseText)
+            } catch (e) {
+                jsonRe = request.responseText;
+            }
+            callback(jsonRe);
         }
     }
     request.send(JSON.stringify(arg));
 
 }
-function httpPost(url,arg, callback) {
-    creatRequest(url,arg,callback);
+function httpPost(url, arg, callback) {
+    creatRequest(url, arg, callback);
 }
 
 function httpGet(url, callback) {
-    creatRequest(url,null,callback);
+    creatRequest(url, null, callback);
 }
 
 function getPar(par) {
