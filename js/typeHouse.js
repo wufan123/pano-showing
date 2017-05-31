@@ -4,11 +4,11 @@ getData();
 
 function getData() {
     if (haveToken()) {
-        httpPost("/area/community/getDetail", {"id": communityId}, function (res) {
+        httpPost("/api/area/community/getDetail", {"id": communityId}, function (res) {
             if (res.ret == 0)
                 createTitle("当前小区：" + res.result.name);
         });
-        httpGet("/area/building/getTypeList?communityId=" + communityId, function (res) {
+        httpGet("/api/area/building/getTypeList?communityId=" + communityId, function (res) {
             if (res.ret == 0)
                 createItems(res.result.data);
         })
@@ -62,7 +62,7 @@ function createItems(items) {
 }
 
 function getStageList(item) {
-    httpGet("/estate/vrHouses/getVrStageList?houseTypeId=" + item.id, function (res) {
+    httpGet("/api/estate/vrHouses/getVrStageList?houseTypeId=" + item.id, function (res) {
         if(res.ret==0&&res.result.data.length>0)
         {
             window.sessionStorage.setItem("stageList", JSON.stringify(res.result.data));
