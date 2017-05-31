@@ -18,7 +18,7 @@ var panorama = new Panorama({
         select: true
     },
     stages:stageList
-},document.body)
+},document.body);
 function Panorama (config, domElement, clickSpotFn) {
     var camera, scene, renderer, hotSpots = [],
         controls, animationFrame;
@@ -39,7 +39,7 @@ function Panorama (config, domElement, clickSpotFn) {
         controls = new Controls(camera, renderer.domElement);
         window.addEventListener('resize', onWindowResize, false);
         // createShowBox();
-        createToolBar()
+        createToolBar();
         InitloaderManager();
         loadFirstStage();
         animate()
@@ -53,7 +53,7 @@ function Panorama (config, domElement, clickSpotFn) {
     }
     function createShowBox() {
         controls.setDisable(true);
-        showParentElement =  document.createElement('div')
+        showParentElement =  document.createElement('div');
         showParentElement.classList.add("show");
         showElement  =document.createElement('div');
         showElement.classList.add("show-box");
@@ -98,8 +98,8 @@ function Panorama (config, domElement, clickSpotFn) {
         // var estateElement = document.createElement('div');
         // estateElement.className = 'preview';
         createToolBarItem("icon-house","户型选择",function () {
-                window.location.href = "typeHouse.html"
-        })
+                window.location.href = "panorama.html"
+        });
         if (config.toolbar.select) { // 房间选择
             var planeElement = document.createElement('div');
             planeElement.className = 'preview';
@@ -309,7 +309,7 @@ function Panorama (config, domElement, clickSpotFn) {
     this.addHotSpot = function (hotSpot) {
         hotSpot.mount(scene);
         hotSpots.push(hotSpot);
-    }
+    };
     this.getSpotXYZ = function (coordinates) {
         var clientV = new THREE.Vector3(
             (coordinates.x / domElement.clientWidth) * 2 - 1, -(coordinates.y / domElement.clientHeight) * 2 + 1,
@@ -326,10 +326,10 @@ function Panorama (config, domElement, clickSpotFn) {
 
     this.getHotspot = function (spot, clickSpotFn) {
         return new HotSpot(camera, spot, halfSize - 40, clickSpotFn);
-    }
+    };
     this.removeSpot = function (hotspot) {
         scene.remove(hotspot.spot);
         hotSpots.pop(hotspot);
     };
     init()
-};
+}

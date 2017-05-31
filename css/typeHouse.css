@@ -16,3 +16,18 @@ body{
     border-bottom: solid #d3d3d3 1px;
     background: #fff;
 }
+.info-box {
+    position: fixed;
+    z-index: 3;
+    left: 50%;
+    margin-left: -100px;
+    top: 50%;
+    margin-top: -40px;
+    background-color: #fff;
+    color: #101010;
+    width: 200px;
+    min-height: 80px;
+    border-radius: 5px;
+    font-size: 14px;
+    padding: 10px;
+}
