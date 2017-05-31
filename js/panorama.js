@@ -10,14 +10,12 @@
 var stageList;
 try {
     stageList = convertCubePicUrls(JSON.parse(window.sessionStorage.getItem("stageList")));
-}catch (e)
-{
-    anError("场景列表信息异常",1000);
+} catch (e) {
+    anError("场景列表信息异常", 1000);
 }
 
 function convertCubePicUrls(list) {
-    for(var i =0;i<list.length;i++)
-    {
+    for (var i = 0; i < list.length; i++) {
         list[i].cubePicUrls = JSON.parse(list[i].cubePicUrls);
     }
     return list;
@@ -31,12 +29,12 @@ var panorama = new Panorama({
         audio: true,
         select: true
     },
-    stages:stageList
-},document.body);
-function Panorama (config, domElement, clickSpotFn) {
+    stages: stageList
+}, document.body);
+function Panorama(config, domElement, clickSpotFn) {
     var camera, scene, renderer, hotSpots = [],
         controls, animationFrame;
-    var minMapElement, titleElement, toolElement ,showElement,showParentElement;
+    var minMapElement, titleElement, toolElement, showElement, showParentElement;
     var vm = this;
 
     config.size = Math.floor(config.size ? config.size * 1.5 : 768 * 1.5);
@@ -65,19 +63,20 @@ function Panorama (config, domElement, clickSpotFn) {
         camera.updateProjectionMatrix();
         renderer.setSize(domElement.clientWidth, domElement.clientHeight);
     }
+
     function createShowBox() {
         controls.setDisable(true);
-        showParentElement =  document.createElement('div');
+        showParentElement = document.createElement('div');
         showParentElement.classList.add("show");
-        showElement  =document.createElement('div');
+        showElement = document.createElement('div');
         showElement.classList.add("show-box");
         showParentElement.appendChild(showElement);
         setTimeout(function () {
-            showParentElement.addEventListener('click',function () {
+            showParentElement.addEventListener('click', function () {
                 controls.setDisable(false);
                 renderer.domElement.removeChild(showParentElement);
-            },false)
-        },100);
+            }, false)
+        }, 100);
         renderer.domElement.appendChild(showParentElement);
     }
 
@@ -111,11 +110,12 @@ function Panorama (config, domElement, clickSpotFn) {
         toolElement.classList.add('toolbar');
         // var estateElement = document.createElement('div');
         // estateElement.className = 'preview';
-        createToolBarItem("icon-house","户型选择",function () {
-                window.history.go(-1);
+        createToolBarItem("icon-house", "户型选择", function () {
+            window.history.go(-1);
         });
-        if (config.toolbar.select) { // 房间选择
+        if (config.toolbar.select) { // 场景选择
             var planeElement = document.createElement('div');
+
             planeElement.className = 'preview';
             var itemsElement = document.createElement('div');
             itemsElement.className = 'preview-items';
@@ -137,7 +137,8 @@ function Panorama (config, domElement, clickSpotFn) {
                 itemsElement.appendChild(itemElement)
             }
             toolElement.appendChild(planeElement);
-            createToolBarItem('icon-menu', '房间选择', function (toolElementItem, iconElement) {
+            planeElement.addEventListener("click", function (event) {
+                event.stopPropagation();
                 if (planeElement.style.opacity == 0) {
                     controls.setDisable(true);
                     planeElement.style.height = '140px';
@@ -147,7 +148,17 @@ function Panorama (config, domElement, clickSpotFn) {
                     planeElement.style.height = '0px';
                     planeElement.style.opacity = 0
                 }
-
+            }, false);
+            createToolBarItem('icon-menu', '场景选择', function (toolElementItem, iconElement) {
+                if (planeElement.style.opacity == 0) {
+                    controls.setDisable(true);
+                    planeElement.style.height = '140px';
+                    planeElement.style.opacity = 1
+                } else {
+                    controls.setDisable(false);
+                    planeElement.style.height = '0px';
+                    planeElement.style.opacity = 0
+                }
             })
         }
         if (config.toolbar.audio) { // 声音控制
@@ -267,7 +278,7 @@ function Panorama (config, domElement, clickSpotFn) {
         if (stage.vrAnchors && stage.vrAnchors.length > 0) {
             for (var i = 0; i < stage.vrAnchors.length; i++) {
                 if (!clickSpotFn) {
-                    clickSpotFn =hotspotFn;
+                    clickSpotFn = hotspotFn;
                 }
                 var hotSpot = new HotSpot(camera, stage.vrAnchors[i], halfSize - 40, clickSpotFn);
                 hotSpot.mount(scene);
@@ -275,18 +286,19 @@ function Panorama (config, domElement, clickSpotFn) {
             }
         }
     }
-    
+
     function hotspotFn(hotspot) {
 
-        if(hotspot.type==0)
-        {
+        if (hotspot.type == 0) {
             loadStage(hotspot.toVrstageId)
-        }else{
-
+        } else {
             createShowBox();
-            httpGet(hotspot.linkurl,function (re) {
-                showElement.innerHTML =re;
-            })
+            httpPost("api/custom/getHtmlData",{"body":hotspot.linkurl},function (re) {
+                showElement.innerHTML = re;
+            });
+            // httpGet(hotspot.linkurl, function (re) {
+            //     showElement.innerHTML = re;
+            // })
         }
     }
 
