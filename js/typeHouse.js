@@ -17,7 +17,11 @@ function getData() {
 function haveToken() {
     var token = window.sessionStorage.getItem("token");
     if (!token) {
-        login()
+        login();
+        return false;
+    }else
+    {
+        return true;
     }
 
 }
@@ -28,7 +32,7 @@ function login() {
     // communityId = getPar("communityId");
     httpPost("/role/user/loginWx", {"wxOpenId": openId}, function (res) {
         window.sessionStorage.setItem("token", res.token);
-        getHouseType();
+        getData();
     })
 }
 
