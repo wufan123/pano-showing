@@ -53,7 +53,7 @@ function creatRequest(url,arg, callback) {
             callback(request.responseText);
         }
     }
-    request.send(JSON.parse(arg));
+    request.send(JSON.stringify(arg));
 
 }
 function httpPost(url,arg, callback) {
