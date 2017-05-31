@@ -3,28 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <title>选择户型</title>
-    <!--<script type="text/javascript" src="http://apps.bdimg.com/libs/fastclick/1.0.0/fastclick.min.js"></script>-->
+    <script type="text/javascript" src="https://apps.bdimg.com/libs/fastclick/1.0.0/fastclick.min.js"></script>
     <link rel="stylesheet" href="css/typeHouse.css"/>
-    <script type="text/javascript">
-        var phoneScale = parseInt(window.screen.width) / 375;
-        document.write('<meta name="viewport" content="width=375, minimum-scale = ' + phoneScale + ', maximum-scale = ' +
-                phoneScale + ', target-densitydpi=device-dpi">');
-        //禁止微信滚动
-        //        document.addEventListener('touchstart', function (ev) {
-        //            event.preventDefault();
-        //        });
-        //禁止300ms延迟
-        //        if ('addEventListener' in document) {
-        //            document.addEventListener('DOMContentLoaded', function () {
-        //                FastClick.attach(document.body);
-        //            }, false);
-        //        }
-    </script>
+
 </head>
 <body>
 <div id="title">
 
 </div>
+<script type="text/javascript">
+    var phoneScale = parseInt(window.screen.width) / 375;
+    document.write('<meta name="viewport" content="width=375, minimum-scale = ' + phoneScale + ', maximum-scale = ' +
+            phoneScale + ', target-densitydpi=device-dpi">');
+//    禁止微信滚动
+            document.addEventListener('touchstart', function (ev) {
+                event.preventDefault();
+            });
+//    禁止300ms延迟
+            if ('addEventListener' in document) {
+                document.addEventListener('DOMContentLoaded', function () {
+                    FastClick.attach(document.body);
+                }, false);
+            }
+</script>
 <script src="js/standalone.js" type="text/javascript"></script>
 <script src="js/typeHouse.js" type="text/javascript"></script>
 </body>
