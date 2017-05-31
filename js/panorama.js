@@ -293,7 +293,7 @@ function Panorama(config, domElement, clickSpotFn) {
             loadStage(hotspot.toVrstageId)
         } else {
             createShowBox();
-            httpPost("api/custom/getHtmlData",{"srcUrl":hotspot.linkurl},function (re) {
+            httpPost("/api/custom/getHtmlData",{"srcUrl":hotspot.linkurl},function (re) {
                 showElement.innerHTML = re;
             });
             // httpGet(hotspot.linkurl, function (re) {
