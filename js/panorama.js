@@ -8,6 +8,7 @@
 //     panorama = new Panorama(config, document.body)
 // })
 var stageList = JSON.parse(window.sessionStorage.getItem("stageList"));
+stageList.cubePicUrls =JSON.parse(stageList.cubePicUrls);
 var panorama = new Panorama({
     title: "",
     size: 768,
