@@ -85,5 +85,6 @@ function getPar(par) {
     if (nextPar != -1) {
         get_par = get_par.slice(0, nextPar);
     }
-    return get_par;
+
+    return decodeURI(get_par);
 }
