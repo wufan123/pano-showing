@@ -79,7 +79,7 @@ function getStageList(item) {
             location.href = "panorama.html";
         }else
         {
-            anError("当前场景下没有全景看房",1000);
+            anError("当前户型下没有全景看房",1000);
         }
     });
     //
