@@ -178,7 +178,10 @@ function Panorama(config, domElement, clickSpotFn) {
                     iconElement.className = 'iconfont icon-soundminus';
                 }
             });
-            config.autoplay && item.click()
+            document.addEventListener("WeixinJSBridgeReady", function () {
+                config.autoplay && item.click()
+            }, false);
+            // config.autoplay && item.click()
         }
         renderer.domElement.appendChild(toolElement)
     }
