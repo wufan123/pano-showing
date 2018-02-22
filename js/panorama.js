@@ -2,11 +2,11 @@
  * 主控场景控制
  * @author yourenke
  */
-// loadJSON('js/stages.json', function (config) {
-//     console.log("取到的配置",config)
-//     document.title = config.title
-//     panorama = new Panorama(config, document.body)
-// })
+loadJSON('js/stages.json', function (config) {
+    console.log("取到的配置",config)
+    document.title = config.title
+    panorama = new Panorama(config, document.body)
+})
 var stageList;
 try {
     stageList = convertCubePicUrls(JSON.parse(window.sessionStorage.getItem("stageList")));
